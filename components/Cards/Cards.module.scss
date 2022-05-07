@@ -1,0 +1,41 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3rem;
+  background-color: #0e3a9f;
+  padding: 1.5rem 4rem 1.5rem 3rem;
+  color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(#000, 0.5);
+  img {
+    width: 12rem;
+    padding: 3rem 0;
+    filter: invert(100%);
+  }
+  &:nth-child(2),
+  &:nth-child(3) {
+    background-color: #d5e3ff;
+    color: #0e3a9f;
+    img {
+      filter: none;
+    }
+  }
+  &:nth-child(3) {
+    img {
+      //filter: invert(100%);
+      //filter: hue-rotate(222), saturate(84%), brightness(34%);
+    }
+  }
+  div {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-family: SquaresBold, sans-serif;
+    &:nth-child(2) {
+      align-self: flex-end;
+    }
+  }
+}
+
+.amt {
+  font-size: 6rem !important;
+  padding: 3.5rem 0;
+}
