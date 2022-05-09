@@ -142,8 +142,31 @@
 
 .active {
   background-color: #d5e3ff;
+  position: relative;
   p {
     color: #0e3e9f !important;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1.5rem;
+    background-color: #d5e3ff;
+    z-index: 5;
+    transform: translateX(1.5rem);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    bottom: 0;
+    right: 0;
+    background-color: #0e3a9f;
+    transform: translate(1.4rem, 1.48rem);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
   }
 }
 
