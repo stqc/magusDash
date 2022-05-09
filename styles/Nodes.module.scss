@@ -44,5 +44,36 @@
 }
 
 .myNodes {
-  padding: 5rem 10rem;
+  & > div:first-child {
+    margin: 3rem 0;
+  }
 }
+.form {
+  display: flex;
+  gap: 2rem;
+  input {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    flex: 1;
+    border: 1px solid #000;
+    &::placeholder {
+      text-transform: capitalize;
+    }
+  }
+  button {
+    border-radius: 1rem;
+    background-color: transparent;
+    border: 2px solid #0e3a9f;
+    padding: 0.5rem 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .form {
+    flex-direction: column;
+  }
+}
+
+// .myNodes {
+//   padding: 5rem 10rem;
+// }

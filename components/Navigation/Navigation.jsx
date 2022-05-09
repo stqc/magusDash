@@ -26,7 +26,7 @@ export default function Navigation() {
       text: "nodes",
       address: "/nodes"
     },
-    
+
     {
       icon: "/assets/ICONS/google-docs.png",
       text: "documentation",
@@ -58,14 +58,13 @@ export default function Navigation() {
       <nav className={styles.navigationNav}>
         <ul>
           {navData.map((item) => (
-            <Link key={item.text}href={item.address}>
+            <Link key={item.text} href={item.address}>
               <li onClick={navActive} className="nav-item">
                 <img src={item.icon} alt="" />
                 <p>{item.text}</p>
               </li>
             </Link>
           ))}
-
         </ul>
       </nav>
       <div className={styles.socials}>

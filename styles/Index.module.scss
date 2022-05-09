@@ -1,0 +1,18 @@
+.dashboard {
+  //padding: 2rem 15rem;
+  height: 100%;
+  width: 100%;
+  //margin-top: 5rem;
+  & > div {
+    padding: 5rem 0;
+  }
+  .grid {
+    margin-top: auto;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  // .dashboard {
+  //   margin-top: 5rem;
+  // }
+}

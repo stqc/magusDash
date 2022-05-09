@@ -1,3 +1,4 @@
+import styles from "../styles/Index.module.scss"
 import Layout from "../components/Layout/Layout"
 import Cards from "../components/Cards/Cards"
 
@@ -25,7 +26,7 @@ export default function Home() {
     }
   ]
   return (
-    <div className="dashboard">
+    <div className={styles.dashboard}>
       <img src="/assets/DAPP.png" alt="" className="background" />
       <div>
         <div className="grid">
