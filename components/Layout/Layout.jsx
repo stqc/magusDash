@@ -41,11 +41,18 @@ export default function Layout({ children }) {
   ]
 
   const navActive = (e) => {
+    console.log(e.target.nodeName)
     const items = document.querySelectorAll(".nav-item")
     for (let i = 0; i < items.length; i++) {
       items[i].classList.remove(styles.active)
     }
-    e.target.classList.toggle(styles.active)
+
+    if (e.target.nodeName == "LI") {
+      e.target.classList.toggle(styles.active)
+    } else {
+      e.target.parentNode.classList.toggle(styles.active)
+    }
+    toggleNav()
   }
 
   const toggleNav = () => {
@@ -63,7 +70,7 @@ export default function Layout({ children }) {
         <div className={styles.logo}>
           <img src="/assets/LOGOS/LOGO_SOLO_BIG_WHITE.png" alt="..." />
           <div className={styles.logoText}>
-            <span>Magnus</span>
+            <span>Magus</span>
             <span>Nodes</span>
           </div>
         </div>
