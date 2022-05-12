@@ -27,7 +27,7 @@ export default function Layout({ children }) {
     {
       icon: "/assets/ICONS/p2p.png",
       text: "P2P market (Coming soon)",
-      address: "/"
+      address: "/p2p"
     },
     {
       icon: "/assets/ICONS/blockchain.png",
@@ -38,12 +38,12 @@ export default function Layout({ children }) {
     {
       icon: "/assets/ICONS/google-docs.png",
       text: "documentation",
-      address: "/"
+      address: "/docs"
     },
     {
       icon: "/assets/ICONS/bank.png",
       text: "treasury",
-      address: "/"
+      address: "/treasury"
     }
   ]
 
@@ -115,8 +115,14 @@ export default function Layout({ children }) {
     if (!navItems) return
     if (router.pathname == "/") {
       setCurrentItem(navItems[0])
+    } else if (router.pathname == "/p2p") {
+      setCurrentItem(navItems[1])
     } else if (router.pathname == "/nodes") {
       setCurrentItem(navItems[2])
+    } else if (router.pathname == "/docs") {
+      setCurrentItem(navItems[3])
+    } else if (router.pathname == "/treasury") {
+      setCurrentItem(navItems[4])
     }
   })
 
