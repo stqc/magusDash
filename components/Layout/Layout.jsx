@@ -1,10 +1,17 @@
 import styles from "./Layout.module.scss"
 import Link from "next/link"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
+import { SwitchTransition, Transition } from "react-transition-group"
+import { useRouter } from "next/router"
+import gsap from "gsap"
 
 export default function Layout({ children }) {
   const [isActive, setActive] = useState(false)
+  const [currentItem, setCurrentItem] = useState()
+  const [navItems, setNavItem] = useState()
   const navRef = useRef(null)
+  const burgerRef = useRef(null)
+  const router = useRouter()
 
   /**
    * * This is an array for all the items for the navigation menu
@@ -41,27 +48,90 @@ export default function Layout({ children }) {
   ]
 
   const navActive = (e) => {
-    console.log(e.target.nodeName)
-    const items = document.querySelectorAll(".nav-item")
-    for (let i = 0; i < items.length; i++) {
-      items[i].classList.remove(styles.active)
+    for (let i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove(styles.active)
     }
 
     if (e.target.nodeName == "LI") {
-      e.target.classList.toggle(styles.active)
+      //e.target.classList.toggle(styles.active)
+      setCurrentItem(e.target)
     } else {
-      e.target.parentNode.classList.toggle(styles.active)
+      //e.target.parentNode.classList.toggle(styles.active)
+      setCurrentItem(e.target.parentNode)
     }
     toggleNav()
   }
 
   const toggleNav = () => {
     navRef.current.classList.toggle(styles.navActive)
+    burgerRef.current.classList.toggle(styles.burgerActive)
   }
+
+  const setHover = (e) => {
+    for (let i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove(styles.active)
+    }
+    if (e.target.nodeName == "LI") {
+      e.target.classList.toggle(styles.active)
+    } else {
+      e.target.parentNode.classList.toggle(styles.active)
+    }
+  }
+
+  const setActiveMenu = () => {
+    for (let i = 0; i < navItems.length; i++) {
+      navItems[i].classList.remove(styles.active)
+    }
+    currentItem.classList.add(styles.active)
+  }
+
+  function enter(node) {
+    let tl = new gsap.timeline()
+    tl.fromTo(
+      node,
+      {
+        opacity: 0
+      },
+      {
+        opacity: 1
+      }
+    )
+  }
+
+  function exit(node) {
+    let tl = new gsap.timeline()
+    tl.fromTo(
+      node,
+      {
+        opacity: 1
+      },
+      {
+        opacity: 0
+      }
+    )
+  }
+
+  useEffect(() => {
+    if (!navItems) return
+    if (router.pathname == "/") {
+      setCurrentItem(navItems[0])
+    } else if (router.pathname == "/nodes") {
+      setCurrentItem(navItems[2])
+    }
+  })
+
+  useEffect(() => {
+    setNavItem(document.querySelectorAll(".nav-item"))
+  }, [])
+
+  useEffect(() => {
+    if (!currentItem) return
+    currentItem.classList.add(styles.active)
+  }, [currentItem])
 
   return (
     <div className={styles.layout}>
-      <div className={styles.burger} onClick={toggleNav}>
+      <div className={styles.burger} onClick={toggleNav} ref={burgerRef}>
         <div></div>
         <div></div>
         <div></div>
@@ -75,10 +145,10 @@ export default function Layout({ children }) {
           </div>
         </div>
         <nav className={styles.navigationNav}>
-          <ul>
+          <ul onMouseLeave={setActiveMenu}>
             {navData.map((item) => (
               <Link key={item.text} href={item.address}>
-                <li onClick={navActive} className="nav-item">
+                <li onClick={navActive} className="nav-item" onMouseEnter={setHover}>
                   <img src={item.icon} alt="" />
                   <p>{item.text}</p>
                 </li>
@@ -94,7 +164,19 @@ export default function Layout({ children }) {
           </ul>
         </div>
       </div>
-      <main>{children}</main>
+      <SwitchTransition>
+        <Transition
+          key={router.pathname}
+          timeout={500}
+          in={true}
+          onEnter={enter}
+          onExit={exit}
+          mountOnEnter={true}
+          unmountOnExit={true}
+        >
+          <main>{children}</main>
+        </Transition>
+      </SwitchTransition>
     </div>
   )
 }

@@ -84,6 +84,7 @@
     margin: 0;
     //gap: 2rem;
     li {
+      transition: all 0.5s ease;
       a {
       }
       img {
@@ -129,26 +130,64 @@
   width: 5rem;
   //background-color: #0e3a9f;
   left: 3rem;
-  top: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  top: 3rem;
+  //position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   div {
+    transition: all 0.5s ease;
     height: 5px;
     width: 100%;
     background-color: #bbb;
+    position: absolute;
+    border-radius: 1rem;
+    &:nth-child(1) {
+      top: 0;
+      right: 0;
+      transform-origin: top left;
+    }
+    &:nth-child(2) {
+      top: 40%;
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      right: 0;
+      transform-origin: bottom left;
+    }
   }
   z-index: 10;
   display: none;
 }
 
+.burgerActive {
+  div {
+    background-color: #d5e3ff;
+    &:nth-child(2) {
+      // display: none;
+      background-color: transparent;
+    }
+    &:nth-child(1) {
+      transform: rotate(45deg);
+      transform-origin: top left;
+      top: -0.85rem;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      transform-origin: bottom left;
+    }
+  }
+}
+
 .active {
   background-color: #d5e3ff;
   position: relative;
+  transition: transform 0.5s ease;
   p {
     color: #0e3e9f !important;
   }
   &::before {
+    transition: all 0.5s ease;
     content: "";
     position: absolute;
     top: 0;
@@ -160,6 +199,7 @@
     transform: translateX(1.5rem);
   }
   &::after {
+    transition: all 0.5s ease;
     content: "";
     position: absolute;
     height: 1.5rem;
