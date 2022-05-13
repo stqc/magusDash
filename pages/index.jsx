@@ -1,6 +1,7 @@
 import styles from "../styles/Index.module.scss"
 import Layout from "../components/Layout/Layout"
 import Cards from "../components/Cards/Cards"
+import { useEffect } from "react"
 
 export default function Home() {
   const cardData = [
@@ -25,6 +26,11 @@ export default function Home() {
       third: "1 node: 100 magus"
     }
   ]
+
+  useEffect(() => {
+    const items = document.querySelectorAll(".nav-item")
+    items[0].classList.add("active")
+  }, [])
   return (
     <div className={styles.dashboard}>
       <img src="/assets/DAPP.png" alt="" className="background" />

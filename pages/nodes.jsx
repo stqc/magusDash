@@ -1043,7 +1043,7 @@ export default function Nodes() {
       <div className="nodes">
         <div className={styles.userContainer}>
           <div className={styles.userInfo}>
-            <div className={styles.avatar}>
+            <div className={styles.avatar + " mt-5"}>
               <img src="/assets/Magus5.png" alt="" />
             </div>
             <div className={styles.info}>
