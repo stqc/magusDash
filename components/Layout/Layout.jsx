@@ -38,13 +38,15 @@ export default function Layout({ children }) {
     {
       icon: "/assets/ICONS/google-docs.png",
       text: "documentation",
-      address: "/docs"
-    },
-    {
-      icon: "/assets/ICONS/bank.png",
-      text: "treasury",
-      address: "/treasury"
+      address: "https://docs.magusnodes.com",
+      target: "_blank",
+      rel: "noopener noreferrer"
     }
+    // {
+    //   icon: "/assets/ICONS/bank.png",
+    //   text: "treasury",
+    //   address: "/treasury"
+    // }
   ]
 
   const navActive = (e) => {
@@ -121,9 +123,9 @@ export default function Layout({ children }) {
       setCurrentItem(navItems[2])
     } else if (router.pathname == "/docs") {
       setCurrentItem(navItems[3])
-    } else if (router.pathname == "/treasury") {
-      setCurrentItem(navItems[4])
-    }
+    } //else if (router.pathname == "/treasury") {
+    //   setCurrentItem(navItems[4])
+    // }
   })
 
   useEffect(() => {
@@ -153,7 +155,12 @@ export default function Layout({ children }) {
         <nav className={styles.navigationNav}>
           <ul onMouseLeave={setActiveMenu}>
             {navData.map((item) => (
-              <Link key={item.text} href={item.address}>
+              <Link
+                key={item.text}
+                href={item.address}
+                target={item.target ? item.target : ""}
+                rel={item.rel ? item.rel : ""}
+              >
                 <li onClick={navActive} className="nav-item" onMouseEnter={setHover}>
                   <img src={item.icon} alt="" />
                   <p>{item.text}</p>
