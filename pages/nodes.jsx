@@ -978,7 +978,7 @@ export default function Nodes() {
   const [nodesBalance, updateNodeBalance] = useState("0")
   const [contract, updateContract] = useState("0")
   var inpAMT = createRef()
-  var contractAddress = "0xbEf6b0C8612bB13EE4Db7e19a69ef084eeF60B31"
+  var contractAddress = "0x42613f9F8ec58E45bBF747E91B13D7D535a17fD6"
   const withWeb3 = async () => {
     try {
       await window.ethereum.request({ method: "eth_requestAccounts" })
@@ -991,6 +991,7 @@ export default function Nodes() {
       console.log(con._address)
 
       var magus = await con.methods.balanceOf(conAccount[0]).call()
+      magus = magus/(10**6);
       console.log(magus)
       updateMagusBalance(magus)
       var nodes = await con.methods.nodeBalance(conAccount[0]).call()
@@ -1024,6 +1025,7 @@ export default function Nodes() {
     console.log(hash)
 
     var magus = await contract.methods.balanceOf(connectedAccount[0]).call()
+    magus = magus/(10**6);
     console.log(magus)
     updateMagusBalance(magus)
   }
