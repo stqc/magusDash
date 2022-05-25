@@ -978,7 +978,7 @@ export default function Nodes() {
   const [nodesBalance, updateNodeBalance] = useState("0")
   const [contract, updateContract] = useState("0")
   var inpAMT = createRef()
-  var contractAddress = "0x3f480FB2C95f160BBAD69763571FFe9CD0C87a82"
+  var contractAddress = "0xA57ca211cd6820bd3d930978271538d07e31A212"
   const withWeb3 = async () => {
     try {
       await window.ethereum.request({ method: "eth_requestAccounts" })
