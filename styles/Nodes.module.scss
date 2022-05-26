@@ -1,6 +1,7 @@
 .userContainer {
   display: flex;
   justify-content: center;
+  width:100%;
 }
 
 .userInfo {
@@ -24,6 +25,8 @@
   flex-direction: column;
   justify-content: center;
   text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: #0e3a9f;
   & > p {
     &:first-child {
@@ -44,6 +47,7 @@
 }
 
 .myNodes {
+  width:100%;
   & > div:first-child {
     margin: 3rem 0;
   }

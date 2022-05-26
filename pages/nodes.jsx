@@ -1,4 +1,5 @@
 import styles from "../styles/Nodes.module.scss"
+
 import Cards from "../components/Cards/Cards"
 import Web3 from "web3"
 import React, { createRef, useEffect, useState } from "react"
@@ -1042,7 +1043,7 @@ export default function Nodes() {
       ) : (
         <></>
       )}
-      <div className="nodes">
+      <div className="nodes" style={{width:"100%"}}>
         <div className={styles.userContainer}>
           <div className={styles.userInfo}>
             <div className={styles.avatar + " mt-5"}>
@@ -1063,7 +1064,7 @@ export default function Nodes() {
           <form className={styles.form}>
             <input
               type={"number"}
-              placeHolder={"Enter nodes to purchase"}
+              placeholder={"Enter nodes to purchase"}
               //style={{ width: "100%", marginTop: "4%" }}
               ref={inpAMT}
               min={0}
