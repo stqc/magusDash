@@ -973,7 +973,7 @@ export default function Nodes() {
       type: "function"
     }
   ]
-  const [connectedAccount, getAddress] = useState("0")
+  const [connectedAccount, getAddress] = useState()
   const [isConnected, updateConnectStatus] = useState(false)
   const [magusBalance, updateMagusBalance] = useState(0)
   const [nodesBalance, updateNodeBalance] = useState("0")
@@ -1043,20 +1043,22 @@ export default function Nodes() {
       ) : (
         <></>
       )}
-      <div className="nodes" style={{width:"100%"}}>
+      <div className="nodes" >
         <div className={styles.userContainer}>
           <div className={styles.userInfo}>
             <div className={styles.avatar + " mt-5"}>
               <img src="/assets/Magus5.png" alt="" />
             </div>
-            <div className={styles.info}>
-              <p>welcome {connectedAccount}</p>
+            
+          </div>
+        </div>
+        <div className={styles.info}>
+              <p>welcome</p>
+              <p  className={styles.add}>{connectedAccount}</p>
               <span>
                 <p>$MAGUS: {magusBalance}</p>
               </span>
             </div>
-          </div>
-        </div>
         <div className={styles.myNodes}>
           <div className="grid">
             <Cards first="My Node" amt={nodesBalance} apy="1%" fourth="" />
