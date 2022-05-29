@@ -36,7 +36,7 @@ export default function Nodes() {
       var nodes = await con.methods.nodeBalance(conAccount[0]).call()
       console.log(nodes)
       updateNodeBalance(nodes)
-      var tInterest =await con.methods._interest(conAccount[0]).call()
+      var tInterest =await con.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);
     } catch (exception) {
       console.log(exception)
@@ -56,7 +56,7 @@ export default function Nodes() {
     var nodes = await contract.methods.nodeBalance(connectedAccount[0]).call()
     console.log(nodes)
     updateNodeBalance(nodes)
-    var tInterest =await contract.methods._interest(conAccount[0]).call()
+    var tInterest =await contract.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);
   }
 
@@ -77,7 +77,7 @@ export default function Nodes() {
       magus = magus/(10**6);
       console.log(magus)
       updateMagusBalance(magus)
-      var tInterest =await contract.methods._interest(conAccount[0]).call()
+      var tInterest =await contract.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);}
       else{alert("Next claim available at "+nextTime)}
     
