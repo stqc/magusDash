@@ -110,7 +110,7 @@ export default function Nodes() {
       var tInterest =await contract.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);}
       else{alert("Next claim available at "+nextTime)}
-      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      var days= (timeNow-lastClaimed)/86400000
       
       if(lastClaimed==0 && nodesBalance>0){
         updateOwed("Please make the first claim for us to calculate the amount owed")
