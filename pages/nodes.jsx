@@ -45,15 +45,15 @@ export default function Nodes() {
       var timeNow = new Date().getTime();
       var days= Math.floor((timeNow-lastClaimed)/86400000)
       
-      if(lastClaimed==0 && nodesBalance>0){
+      if(lastClaimed==0 && nodes>0){
         updateOwed("Please make the first claim for us to calculate the amount owed")
       }else
-      if(lastClaimed>0 && nodesBalance>0){
+      if(lastClaimed>0 && nodes>0){
 
-        updateOwed(nodesBalance*days)
-      }else{if(nodesBalance==0){
+        updateOwed(nodes*days)
+      }else if(nodes==0){
         updateOwed("You have no nodes")
-      }}
+      }
     } catch (exception) {
       console.log(exception)
     }
@@ -74,6 +74,20 @@ export default function Nodes() {
     updateNodeBalance(nodes)
     var tInterest =await contract.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);
+      var lastClaimed = await contract.methods._lastClaim(conAccount[0]).call()*1000
+      console.log(lastClaimed);
+      var timeNow = new Date().getTime();
+      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      
+      if(lastClaimed==0 && nodes>0){
+        updateOwed("Please make the first claim for us to calculate the amount owed")
+      }else
+      if(lastClaimed>0 && nodes>0){
+
+        updateOwed(nodes*days)
+      }else if(nodes==0){
+        updateOwed("You have no nodes")
+      }
   }
 
   const claim = async (e) => {
@@ -96,6 +110,17 @@ export default function Nodes() {
       var tInterest =await contract.methods._interest(conAccount[0]).call()/10**6
       updateInterest(tInterest);}
       else{alert("Next claim available at "+nextTime)}
+      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      
+      if(lastClaimed==0 && nodesBalance>0){
+        updateOwed("Please make the first claim for us to calculate the amount owed")
+      }else
+      if(lastClaimed>0 && nodesBalance>0){
+
+        updateOwed(nodes*days)
+      }else if(nodesBalance==0){
+        updateOwed("You have no nodes")
+      }
     
   }
 
