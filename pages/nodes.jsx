@@ -117,7 +117,7 @@ export default function Nodes() {
       }else
       if(lastClaimed>0 && nodesBalance>0){
 
-        updateOwed(nodes*days)
+        updateOwed(String(nodes*days))
       }else if(nodesBalance==0){
         updateOwed("You have no nodes")
       }
