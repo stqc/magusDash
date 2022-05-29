@@ -43,14 +43,14 @@ export default function Nodes() {
       var lastClaimed = await con.methods._lastClaim(conAccount[0]).call()*1000
       console.log(lastClaimed);
       var timeNow = new Date().getTime();
-      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      var days= (timeNow-lastClaimed)/86400000
       
       if(lastClaimed==0 && nodes>0){
         updateOwed("Please make the first claim for us to calculate the amount owed")
       }else
       if(lastClaimed>0 && nodes>0){
 
-        updateOwed(nodes*days)
+        updateOwed(String(nodes*days))
       }else if(nodes==0){
         updateOwed("You have no nodes")
       }
@@ -77,14 +77,14 @@ export default function Nodes() {
       var lastClaimed = await contract.methods._lastClaim(conAccount[0]).call()*1000
       console.log(lastClaimed);
       var timeNow = new Date().getTime();
-      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      var days= (timeNow-lastClaimed)/86400000
       
       if(lastClaimed==0 && nodes>0){
         updateOwed("Please make the first claim for us to calculate the amount owed")
       }else
       if(lastClaimed>0 && nodes>0){
 
-        updateOwed(nodes*days)
+        updateOwed(String(nodes*days))
       }else if(nodes==0){
         updateOwed("You have no nodes")
       }
