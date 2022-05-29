@@ -17,6 +17,8 @@ export default function Nodes() {
   const [nodesBalance, updateNodeBalance] = useState("0")
   const [contract, updateContract] = useState("0")
   const [totalInterest,updateInterest] = useState("0")
+  const [owed,updateOwed] = useState("0")
+
   var inpAMT = createRef()
   var contractAddress = "0xA57ca211cd6820bd3d930978271538d07e31A212"
   const withWeb3 = async () => {
@@ -36,8 +38,22 @@ export default function Nodes() {
       var nodes = await con.methods.nodeBalance(conAccount[0]).call()
       console.log(nodes)
       updateNodeBalance(nodes)
-      var tInterest =await con.methods._interest(conAccount[0]).call()/10**6
+      var tInterest =String(await con.methods._interest(conAccount[0]).call()/10**6)
       updateInterest(tInterest);
+      var lastClaimed = await con.methods._lastClaim(conAccount[0]).call()*1000
+      console.log(lastClaimed);
+      var timeNow = new Date().getTime();
+      var days= Math.floor((timeNow-lastClaimed)/86400000)
+      
+      if(lastClaimed==0 && nodesBalance>0){
+        updateOwed("Please make the first claim for us to calculate the amount owed")
+      }else
+      if(lastClaimed>0 && nodesBalance>0){
+
+        updateOwed(nodesBalance*days)
+      }else{if(nodesBalance==0){
+        updateOwed("You have no nodes")
+      }}
     } catch (exception) {
       console.log(exception)
     }
@@ -113,7 +129,7 @@ export default function Nodes() {
             </div>
         <div className={styles.myNodes}>
           <div className="grid">
-            <Cards first={"My Nodes: "+nodesBalance} amt={totalInterest} apy="1%" fourth="" />
+            <Cards first={"My Nodes: "+nodesBalance} amt={totalInterest} apy="1%" fourth={owed} />
           </div>
           <form className={styles.form}>
             <input

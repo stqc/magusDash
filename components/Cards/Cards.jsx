@@ -14,7 +14,7 @@ export default function Cards({ first, second, third, fourth, amt, apy }) {
       {amt && <div className={styles.amt}>{amt}</div>}
       {third && <div>{third}</div>}
       {apy && <div>Daily ROI: {apy}</div>}
-      {fourth && <div>REWARDS IN TOKEN: {fourth}</div>}
+      {fourth && <div>REWARDS IN TOKEN DUE: {fourth}</div>}
     </div>
   )
 }
