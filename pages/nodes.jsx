@@ -174,7 +174,7 @@ export default function Nodes() {
               Buy
             </button>
             {(isConnected && <h2 style={{color:"red"}}>
-        Last Claim made at: {lastClaimedTime}<br/>NOTE: We advice making claims near or exactly at the same time as the previous claim date to avoid missing rewards.</h2>)}
+        Last Claim made at: {lastClaimedTime}<br/>NOTE: We advise making claims near or exactly at the same time as the previous claim date to avoid missing rewards.</h2>)}
             <button
               //style={{ width: "100%", marginTop: "4%" }}
               onClick={claim}
