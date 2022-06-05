@@ -101,7 +101,10 @@ export default function Nodes() {
       var nextTime = new Date(nextClaim)
       console.log(new Date(lastClaimed)+"\n"+new Date(nextClaim))
       if(nextClaim-timeNow<0)
-      {var hash = await contract.methods.makeClaimNodeReward(connectedAccount[0]).send({ from: connectedAccount[0] })
+      {
+         alert("Please ensure you have read the note section before claiming.")  
+        
+      var hash = await contract.methods.makeClaimNodeReward(connectedAccount[0]).send({ from: connectedAccount[0] })
       console.log(hash)
       var magus = await contract.methods.balanceOf(connectedAccount[0]).call()
       magus = magus/(10**6);
@@ -170,6 +173,8 @@ export default function Nodes() {
             >
               Buy
             </button>
+            {(isConnected && <h2 style={{marginTop:"4%",color:"red"}}>
+        Last Claim made at: {lastClaimedTime}<br/>NOTE: We advice making claims near or exactly at the same time as the previous claim date to avoid missing rewards.</h2>)}
             <button
               //style={{ width: "100%", marginTop: "4%" }}
               onClick={claim}
@@ -178,8 +183,7 @@ export default function Nodes() {
             </button>
           </form>
         </div>
-        {(isConnected && <h2 style={{marginTop:"4%",color:"red"}}>
-        Last Claim made at: {lastClaimedTime}<br/>NOTE: We advice making claims near or exactly at the same time as the previous claim date to avoid missing rewards.</h2>)}
+        
 
       </div>
     </React.Fragment>
