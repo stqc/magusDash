@@ -18,7 +18,7 @@ export default function Nodes() {
   const [contract, updateContract] = useState("0")
   const [totalInterest,updateInterest] = useState("0")
   const [owed,updateOwed] = useState("0")
-
+  const [lastClaimedTime,updateLastClaimedTime] = useState(new Date().toString())
   var inpAMT = createRef()
   var contractAddress = "0xA57ca211cd6820bd3d930978271538d07e31A212"
   const withWeb3 = async () => {
@@ -44,7 +44,7 @@ export default function Nodes() {
       console.log(lastClaimed);
       var timeNow = new Date().getTime();
       var days= Math.floor((timeNow-lastClaimed)/86400000)
-      
+      updateLastClaimedTime(new Date(lastClaimed).toString());
       if(lastClaimed==0 && nodes>0){
         updateOwed("Please make the first claim for us to calculate the amount owed")
       }else
@@ -178,6 +178,9 @@ export default function Nodes() {
             </button>
           </form>
         </div>
+        {(isConnected && <h2 style={{marginTop:"4%",color:"red"}}>
+        Last Claim made at: {lastClaimedTime}<br/>NOTE: We advice making claims near or exactly at the same time as the previous claim date to avoid missing rewards.</h2>)}
+
       </div>
     </React.Fragment>
   )
