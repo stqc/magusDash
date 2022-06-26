@@ -6,12 +6,12 @@ import Transaction from "../components/Transaction/Transaction"
 export default function P2P() {
   return (
     <div className={styles.p2p}>
-      <div className={styles.overview}>
-        <div className="div">
+      <div className={styles.overview + " row"}>
+        <div className="col-xl-6">
           <div className={styles.video}></div>
           <p>Video tutorial: How to use P2P Marketplace</p>
         </div>
-        <div className="div">
+        <div className="col-xl-6">
           <button className="connect">Connect Wallet</button>
           <div className={styles.avatar}>
             <img src="/assets/Magus5.png" alt="" />
@@ -25,10 +25,10 @@ export default function P2P() {
       <div className={styles.main}>
         <Tabs defaultActiveKey="buy" id="uncontrolled-tab-example" className="mb-3">
           <Tab eventKey="buy" title="Buy" className={styles.tab}>
-            <Table bordereless>
+            <Table responsive="lg">
               <thead>
                 <tr>
-                  <th width="35%">Advertisers</th>
+                  <th>Advertisers</th>
                   <th>Price</th>
                   <th>Available</th>
                   <th>Trade</th>
@@ -79,6 +79,7 @@ export default function P2P() {
         }
         .table{
           margin-top: 3rem;
+          //white-space: nowrap;
         }
         thead tr{
           border-bottom-width: 2px !important;
