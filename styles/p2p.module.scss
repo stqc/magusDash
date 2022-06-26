@@ -6,8 +6,8 @@
   padding: 5rem 3.5rem;
   border-radius: 1rem;
   box-shadow: -0.3rem 0.6rem 0.5rem rgba(#0e3e9f, 0.5);
-  display: flex;
-  gap: 15rem;
+  //display: flex;
+  //gap: 15rem;
 
   div {
     &:first-child {
@@ -22,10 +22,14 @@
     &:last-child {
       display: flex;
       flex-direction: column;
-      flex-direction: column;
-      width: 100%;
-      justify-content: space-between;
       align-items: flex-end;
+      justify-content: space-between;
+      padding: 1rem 1rem;
+      // display: flex;
+      // flex-direction: column;
+      // width: 100%;
+      // justify-content: space-between;
+      //align-items: flex-end;
       button {
         padding: 0.5rem 5rem;
         background-color: transparent;
@@ -39,9 +43,13 @@
 
 .video {
   height: 25rem;
-  width: 55rem;
+  height: clamp(18rem, 30vh, 25rem);
+  width: clamp(40rem, 30vw, 55rem);
   border: 2px solid #0e3e9f;
   border-radius: 1rem;
+  & + p {
+    font-size: 1.6rem;
+  }
 }
 
 .avatar {
@@ -50,6 +58,7 @@
   border-radius: 50%;
   border: 0.5rem solid #0e3e9f;
   padding: 0.2rem;
+  margin-top: 2rem;
   img {
     max-width: 100%;
   }
@@ -57,6 +66,8 @@
 
 .info {
   p {
+    margin: 0;
+    padding: 0;
     font-size: 2rem;
     color: #0e3e9f;
   }
@@ -70,5 +81,39 @@
     &:not(:first-child) {
       text-align: center;
     }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .p2p {
+    margin-top: 2rem;
+  }
+  .overview {
+    gap: 3rem;
+    div {
+      &:first-child {
+        p {
+          text-align: center;
+        }
+      }
+      &:last-child {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .video {
+    height: clamp(18rem, 30vh, 25rem);
+    width: clamp(30rem, 70vw, 55rem);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .video {
+    height: clamp(18rem, 20vh, 25rem);
+    width: clamp(30rem, 70vw, 55rem);
   }
 }
