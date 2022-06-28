@@ -41,7 +41,7 @@ export default function P2P() {
             </Table>
           </Tab>
           <Tab eventKey="sell" title="Sell">
-            <Table bordereless>
+            <Table responsive="lg">
               <thead>
                 <tr>
                   <th width="35%">Advertisers</th>
@@ -79,7 +79,7 @@ export default function P2P() {
         }
         .table{
           margin-top: 3rem;
-          //white-space: nowrap;
+          white-space: nowrap;
         }
         thead tr{
           border-bottom-width: 2px !important;
