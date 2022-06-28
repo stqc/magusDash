@@ -26,7 +26,7 @@ export default function Layout({ children }) {
     },
     {
       icon: "/assets/ICONS/p2p.png",
-      text: "P2P market (Coming soon)",
+      text: "P2P market",
       address: "/p2p"
     },
     {
