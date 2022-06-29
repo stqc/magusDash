@@ -1,5 +1,8 @@
 .row {
   td {
+    &:not(:last-child) {
+      padding-right: 3rem;
+    }
     div {
       display: flex;
       align-items: center;

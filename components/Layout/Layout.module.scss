@@ -1,5 +1,5 @@
 .layout {
-  display: flex;
+  //display: flex;
   gap: 0;
   main {
     margin-left: 40rem;
@@ -86,6 +86,7 @@
     li {
       transition: all 0.5s ease;
       a {
+        text-decoration: none;
       }
       img {
         width: 3rem;
