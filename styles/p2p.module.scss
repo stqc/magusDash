@@ -84,6 +84,21 @@
   }
 }
 
+.row {
+  input {
+    padding: 0.5rem 1rem;
+  }
+}
+.orderButton {
+  width: 15rem;
+  background-color: transparent;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #3c7e00;
+}
+
 @media only screen and (max-width: 1200px) {
   .p2p {
     margin-top: 2rem;
