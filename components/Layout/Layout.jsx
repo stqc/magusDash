@@ -161,10 +161,12 @@ export default function Layout({ children }) {
                 target={item.target ? item.target : ""}
                 rel={item.rel ? item.rel : ""}
               >
-                <li onClick={navActive} className="nav-item" onMouseEnter={setHover}>
-                  <img src={item.icon} alt="" />
-                  <p>{item.text}</p>
-                </li>
+                <a target={item.target ? item.target : ""} style={{ textDecoration: "none" }}>
+                  <li onClick={navActive} className="nav-item" onMouseEnter={setHover}>
+                    <img src={item.icon} alt="" />
+                    <p>{item.text}</p>
+                  </li>
+                </a>
               </Link>
             ))}
           </ul>
