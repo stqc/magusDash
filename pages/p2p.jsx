@@ -627,7 +627,7 @@ export default function P2P() {
       <div className={styles.overview + " row"}>
         <div className="col-xl-6">
           <div className={styles.video}>
-          <iframe width="100%" height={"100%"} src="https://www.youtube.com/embed/W5ElPopfgFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe width="100%" height={"100%"} src="https://www.youtube.com/embed/W5ElPopfgFM" title={"YouTube video player"} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
           <p>Video tutorial: How to use P2P Marketplace</p>
           

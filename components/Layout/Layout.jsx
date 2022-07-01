@@ -125,9 +125,9 @@ export default function Layout({ children }) {
       setCurrentItem(navItems[2])
     } else if (router.pathname == "/docs") {
       setCurrentItem(navItems[3])
-    } //else if (router.pathname == "/treasury") {
-    //   setCurrentItem(navItems[4])
-    // }
+    } else if (router.pathname == "/treasury") {
+       setCurrentItem(navItems[4])
+     }
   })
 
   useEffect(() => {
