@@ -41,12 +41,14 @@ export default function Layout({ children }) {
       address: "https://docs.magusnodes.com",
       target: "_blank",
       rel: "noopener noreferrer"
-    }
-    // {
-    //   icon: "/assets/ICONS/bank.png",
-    //   text: "treasury",
-    //   address: "/treasury"
-    // }
+    },
+     {
+       icon: "/assets/ICONS/bank.png",
+       text: "Github",
+       address: "https://github.com/stqc/magus",
+       target: "_blank",
+       rel: "noopener noreferrer"
+     }
   ]
 
   const navActive = (e) => {
