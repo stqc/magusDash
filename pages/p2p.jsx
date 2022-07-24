@@ -262,7 +262,7 @@ export default function P2P() {
       type: "function"
     }
   ]
-  const address = "0xE0ae6Cd492Cb60754F0Baa8413F093f2D77F4b67"
+  const address = "0xdaf444f97f635702ec43cc361c11d44114a2f065"
   var nodeSaleNum = createRef()
   var nodeSalePrice = createRef()
   var web3
@@ -327,6 +327,7 @@ export default function P2P() {
     try {
       var con = await new web3.eth.Contract(abi, address)
       var conAccount = await new web3.eth.getAccounts()
+      console.log(addressToBuyFrom);
       await con.methods.completeTheOrder(addressToBuyFrom).send({ from: conAccount[0] })
       getOrders()
       alert("Purchase Successful")
