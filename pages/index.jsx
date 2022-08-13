@@ -41,7 +41,7 @@ export default function Home() {
        var existing_nodes = await con.methods.availableNodes().call();
        updateRunny(100000-Number(existing_nodes));
        updatePrice(await con.methods.pricePerToken(1).call()/10**6);
-       console.log(await con.methods._lastClaim("0xfaff57d52717ee9b886859679b371cc3046f2e9f").call())
+       console.log(await con.methods._lastClaim("").call())
        console.log(existing_nodes);
        await con.methods.balanceOf(con._address).call();
        return existing_nodes;
