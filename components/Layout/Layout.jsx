@@ -24,16 +24,7 @@ export default function Layout({ children }) {
       text: "dashboard",
       address: "/"
     },
-    {
-      icon: "/assets/ICONS/p2p.png",
-      text: "P2P market",
-      address: "/p2p"
-    },
-    {
-      icon: "/assets/ICONS/blockchain.png",
-      text: "nodes",
-      address: "/nodes"
-    },
+    
 
     {
       icon: "/assets/ICONS/google-docs.png",
