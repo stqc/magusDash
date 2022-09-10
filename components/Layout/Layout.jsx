@@ -33,11 +33,6 @@ export default function Layout({ children }) {
       target: "_blank",
       rel: "noopener noreferrer"
     },
-     {
-      icon: "/assets/ICONS/p2p.png",
-      text: "P2P market",
-      address: "/p2p"
-    },
     {
       icon: "/assets/ICONS/blockchain.png",
       text: "nodes",
