@@ -34,6 +34,16 @@ export default function Layout({ children }) {
       rel: "noopener noreferrer"
     },
      {
+      icon: "/assets/ICONS/p2p.png",
+      text: "P2P market",
+      address: "/p2p"
+    },
+    {
+      icon: "/assets/ICONS/blockchain.png",
+      text: "nodes",
+      address: "/nodes"
+    },
+     {
        icon: "/assets/ICONS/bank.png",
        text: "Github",
        address: "https://github.com/stqc/magus",
